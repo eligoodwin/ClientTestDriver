@@ -10,7 +10,7 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
-public class okClient {
+public class OkClient {
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
     private OkHttpClient client;
@@ -50,11 +50,11 @@ public class okClient {
         url = add;
     }
 
-    public okClient(){
+    public OkClient(){
         client = new OkHttpClient();
     }
 
-    public okClient(String add){
+    public OkClient(String add){
         //TODO: verify address
         url = add;
         client = new OkHttpClient();
