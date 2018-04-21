@@ -6,9 +6,15 @@ import com.google.gson.Gson;
 import java.io.*;
 import java.util.Scanner;
 
+import static chatClient.DataObjectHelper.createUser;
+
 public class testApp {
     static public OkClient client = new OkClient();
-    public static void interpretChoice(int choice){
+    public static Gson gson = new Gson();
+    private static String token = "";
+    private static UserData user = new UserData();
+    //Returns 1 if option is to quit or 0 otherwise
+    public static int interpretChoice(int choice){
         Scanner scanner = new Scanner( System.in );
         String in = "";
         switch(choice){
@@ -17,7 +23,7 @@ public class testApp {
                 System.out.println("Enter the URL: ");
                 in = scanner.nextLine();
                 client.setURL(in);
-                break;
+                return 0;
             case 1:
                 System.out.println("Enter message to send: ");
                 in = scanner.nextLine();
@@ -28,67 +34,86 @@ public class testApp {
                 catch(IOException e){
                     e.printStackTrace();
                 }
-                break;
+                return 0;
             case 2:
+                user = createUser();
+                try {
+                    in = client.addUser(user);
+                    System.out.println(in);
+                    UserData testUser = gson.fromJson(in, UserData.class);
+                    System.out.println("UserData token:");
+                    System.out.println(testUser.token);
+                    user.token = testUser.token;
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+                return 0;
+            case 3:
+                if (user != null){
+                    DataObjectHelper.saveUser(user);
+                }
+                return 0;
+            case 4:
+                System.out.println("Enter username to load:");
+                in = scanner.nextLine();
+                UserData testUser = DataObjectHelper.loadUser(in);
+                if (testUser == null){
+                    System.out.println("Could not load user.");
+                    return 0;
+                }
+                System.out.println("User data loaded:");
+                System.out.println(gson.toJson(testUser));
+                user = testUser;
+                return 0;
+            case 5:
+                try {
+                    String res = client.checkToken(user);
+                    System.out.println("Token check response: ");
+                    System.out.println(res);
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+                return 0;
+            case 6:
+                String jwt = JWTManager.testJWT();
+                System.out.println("JWT out: ");
+                try {
+                    System.out.println(client.testJWT(jwt));
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+                return 0;
+            default:
                 System.out.println("Exitting...");
-                break;
+                return 1;
         }
 
     }
+
     public static void main(String [] args){
         //*****Test Gson and file storage *****//
         //TODO: encapsulate some of the below functionality in a class
         //source: https://github.com/google/gson/blob/master/UserGuide.md
-        Gson gson = new Gson();
-        String json = "{\"token\":12345,\"issued\":\"01-01-00\",\"expires\":\"02-01-00\"}";
-        TestToken token = gson.fromJson(json, TestToken.class);
-        System.out.println("\n\n### token 1 ###");
-        System.out.println(token.token);
-        System.out.println(token.issued);
-        System.out.println(token.expires);
-        String json2 = gson.toJson(token);
-        try {
-            PrintWriter out = new PrintWriter("testToken.json");
-            out.write(json2);
-            out.close();
-        }
-        catch(FileNotFoundException e){
-            System.out.println("File not found.");
-        }
-        String json3 = "";
-        File file = new File("./testToken.json");
-        //source:https://stackoverflow.com/questions/5868369/how-to-read-a-large-text-file-line-by-line-using-java
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            try {
-                json3 = br.readLine();
-            }
-             catch (IOException e) {
-                e.printStackTrace();
-             }
-        }
-        catch(FileNotFoundException e){
-            System.out.println("File not found");
-        }
-        System.out.println("\n\nFile read in: ");
-        System.out.println(json3);
-        TestToken token2 = gson.fromJson(json, TestToken.class);
-        System.out.println("\n\n### token 2 ###");
-        System.out.println(token2.token);
-        System.out.println(token2.issued);
-        System.out.println(token2.expires);
-
-
 
         int choice = 0;
         Menu menu = new Menu();
-        menu.addOption("Specify URL");
-        menu.addOption("Send Message");
+        menu.addOption("Specify URL"); //0
+        menu.addOption("Send Message"); //1
+        menu.addOption("Create New User");
+        menu.addOption("Save Current User");
+        menu.addOption("Load User");
+        menu.addOption("Check Token"); //5
+        menu.addOption("Test JWT"); //6
         menu.addOption("Quit");
 
-        while (choice != 2){
+        int quit = 0;
+
+        while (quit == 0){
             choice = menu.getChoice();
-            interpretChoice(choice);
+            quit = interpretChoice(choice);
         }
 
         /* Test sendGet
