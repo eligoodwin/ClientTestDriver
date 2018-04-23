@@ -1,12 +1,20 @@
 package chatClient;
 
 
+import Authorization.JWTManager;
+import QueryObjects.DataObjectHelper;
+import QueryObjects.IPandPort;
+import QueryObjects.UserData;
+import Sockets.ClientServer;
+import Sockets.PeerConnection;
+import Sockets.TestClient;
+import Sockets.TestServer;
 import com.google.gson.Gson;
 
 import java.io.*;
 import java.util.Scanner;
 
-import static chatClient.DataObjectHelper.createUser;
+import static QueryObjects.DataObjectHelper.createUser;
 
 public class testApp {
     static public OkClient client = new OkClient();
@@ -86,6 +94,17 @@ public class testApp {
                     e.printStackTrace();
                 }
                 return 0;
+            case 7:
+                try {
+                    //TODO: add getAddress and Port - create query object
+                    IPandPort friend = client.getUser("user");
+                    PeerConnection con = new PeerConnection(friend);
+                    con.receiveMessage();
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+                return 0;
             default:
                 System.out.println("Exitting...");
                 return 1;
@@ -94,9 +113,9 @@ public class testApp {
     }
 
     public static void main(String [] args){
-        //*****Test Gson and file storage *****//
         //TODO: encapsulate some of the below functionality in a class
-        //source: https://github.com/google/gson/blob/master/UserGuide.md
+        ClientServer cServer = new ClientServer();
+        cServer.start();
 
         int choice = 0;
         Menu menu = new Menu();
@@ -107,6 +126,7 @@ public class testApp {
         menu.addOption("Load User");
         menu.addOption("Check Token"); //5
         menu.addOption("Test JWT"); //6
+        menu.addOption("Connect to User");
         menu.addOption("Quit");
 
         int quit = 0;
@@ -115,6 +135,7 @@ public class testApp {
             choice = menu.getChoice();
             quit = interpretChoice(choice);
         }
+        cServer.shutdownServer();
 
         /* Test sendGet
         String res = "";

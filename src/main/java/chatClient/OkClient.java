@@ -4,6 +4,8 @@ package chatClient;
 
 import java.io.IOException;
 
+import QueryObjects.IPandPort;
+import QueryObjects.UserData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.MediaType;
@@ -81,6 +83,12 @@ public class OkClient {
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
+    }
+
+    public IPandPort getUser(String user){
+        //TODO: make actual connection
+        IPandPort data = new IPandPort();
+        return data;
     }
 
     public int disconnect(){

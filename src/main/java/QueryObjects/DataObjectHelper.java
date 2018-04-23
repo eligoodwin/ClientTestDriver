@@ -1,5 +1,7 @@
-package chatClient;
+package QueryObjects;
+//source: https://github.com/google/gson/blob/master/UserGuide.md
 
+import QueryObjects.UserData;
 import com.google.gson.Gson;
 
 import java.io.*;

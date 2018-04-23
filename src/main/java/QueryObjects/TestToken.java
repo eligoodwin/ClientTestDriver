@@ -1,4 +1,4 @@
-package chatClient;
+package QueryObjects;
 
 public class TestToken {
     public int token = -1;

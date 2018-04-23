@@ -1,4 +1,4 @@
-package chatClient;
+package QueryObjects;
 
 import com.google.gson.annotations.Expose;
 
