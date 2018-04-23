@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1e00f867-ff78-47b8-b001-95e0ffd913f3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatClient/testApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatClient/testApp.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -63,20 +62,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testApp.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="testApp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/chatClient/testApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="110" column="70" lean-forward="true" selection-start-line="110" selection-start-column="70" selection-end-line="110" selection-end-column="70" />
+            <state relative-caret-position="342">
+              <caret line="109" column="62" lean-forward="true" selection-start-line="109" selection-start-column="62" selection-end-line="109" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientServer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClientServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="223">
-              <caret line="50" column="41" lean-forward="true" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+              <caret line="77" column="66" selection-start-line="77" selection-start-column="66" selection-end-line="77" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2636#2637#0" expanded="true" />
@@ -638,12 +637,12 @@
       <updated>1524333205550</updated>
       <workItem from="1524333208426" duration="9628000" />
       <workItem from="1524419838117" duration="2565000" />
-      <workItem from="1524498728448" duration="12097000" />
+      <workItem from="1524498728448" duration="12248000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24290000" />
+    <option name="totallyTimeSpent" value="24441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="693" extended-state="6" />
@@ -958,18 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="50" column="41" lean-forward="true" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2636#2637#0" expanded="true" />
-            <element signature="e#2663#2664#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Sockets/PeerConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -982,8 +969,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chatClient/testApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="110" column="70" lean-forward="true" selection-start-line="110" selection-start-column="70" selection-end-line="110" selection-end-column="70" />
+        <state relative-caret-position="342">
+          <caret line="109" column="62" lean-forward="true" selection-start-line="109" selection-start-column="62" selection-end-line="109" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="77" column="66" selection-start-line="77" selection-start-column="66" selection-end-line="77" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2636#2637#0" expanded="true" />
+            <element signature="e#2663#2664#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

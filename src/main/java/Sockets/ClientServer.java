@@ -75,6 +75,8 @@ public class ClientServer implements Runnable {
                         //TODO: authentication of connection
                         //TODO: spawn new window --> likely send socket to new object
                         PeerConnection newCon = new PeerConnection(socket);
+                        //TODO: remove the output - just for trace
+                        System.out.println("New connection received");
                         newCon.sendMessage();
                     }
                     catch(SocketException e){
