@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e00f867-ff78-47b8-b001-95e0ffd913f3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/QueryObjects/IPandPort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Sockets/PeerConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Sockets/TestClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Sockets/TestServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/chatClient/DataObjectHelper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/chatClient/JWTManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/chatClient/TestToken.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/chatClient/UserData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/chatClient/okClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/chatClient/okClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/chatClient/testApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/chatClient/testApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatClient/DataObjectHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryObjects/DataObjectHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatClient/JWTManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Authorization/JWTManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatClient/OkClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatClient/OkClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatClient/TestToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryObjects/TestToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatClient/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryObjects/UserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/chatClient/testApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatClient/testApp.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -81,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testApp.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="testApp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/chatClient/testApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="101" column="41" lean-forward="true" selection-start-line="101" selection-start-column="41" selection-end-line="101" selection-end-column="41" />
+            <state relative-caret-position="308">
+              <caret line="110" column="70" lean-forward="true" selection-start-line="110" selection-start-column="70" selection-end-line="110" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -93,8 +75,8 @@
       <file leaf-file-name="ClientServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="631">
-              <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+            <state relative-caret-position="223">
+              <caret line="50" column="41" lean-forward="true" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2636#2637#0" expanded="true" />
@@ -149,7 +131,7 @@
       <file leaf-file-name="DataObjectHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/QueryObjects/DataObjectHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-454">
+            <state relative-caret-position="-644">
               <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -158,11 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OkClient.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OkClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/chatClient/OkClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="90" column="20" lean-forward="true" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+            <state relative-caret-position="952">
+              <caret line="89" column="41" lean-forward="true" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -487,11 +469,11 @@
         <option value="$PROJECT_DIR$/src/main/java/Sockets/TestServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/QueryObjects/DataObjectHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/Sockets/TestClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/QueryObjects/IPandPort.java" />
         <option value="$PROJECT_DIR$/src/main/java/Sockets/PeerConnection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chatClient/testApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/chatClient/OkClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chatClient/testApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java" />
       </list>
     </option>
   </component>
@@ -656,12 +638,12 @@
       <updated>1524333205550</updated>
       <workItem from="1524333208426" duration="9628000" />
       <workItem from="1524419838117" duration="2565000" />
-      <workItem from="1524498728448" duration="10591000" />
+      <workItem from="1524498728448" duration="12097000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22784000" />
+    <option name="totallyTimeSpent" value="24290000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="693" extended-state="6" />
@@ -935,28 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryObjects/DataObjectHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-454">
-          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2636#2637#0" expanded="true" />
-            <element signature="e#2663#2664#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Sockets/TestClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
@@ -981,6 +941,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chatClient/OkClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="89" column="41" lean-forward="true" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/QueryObjects/DataObjectHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-644">
+          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Sockets/ClientServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="50" column="41" lean-forward="true" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2636#2637#0" expanded="true" />
+            <element signature="e#2663#2664#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Sockets/PeerConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -993,15 +982,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chatClient/testApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="101" column="41" lean-forward="true" selection-start-line="101" selection-start-column="41" selection-end-line="101" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chatClient/OkClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="90" column="20" lean-forward="true" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+        <state relative-caret-position="308">
+          <caret line="110" column="70" lean-forward="true" selection-start-line="110" selection-start-column="70" selection-end-line="110" selection-end-column="70" />
         </state>
       </provider>
     </entry>

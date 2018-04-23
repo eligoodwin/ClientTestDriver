@@ -21,6 +21,7 @@ public class testApp {
     public static Gson gson = new Gson();
     private static String token = "";
     private static UserData user = new UserData();
+    private static ClientServer cServer;
     //Returns 1 if option is to quit or 0 otherwise
     public static int interpretChoice(int choice){
         Scanner scanner = new Scanner( System.in );
@@ -105,6 +106,11 @@ public class testApp {
                     e.printStackTrace();
                 }
                 return 0;
+            case 8:
+                IPandPort local = cServer.getLocalIPandPort();
+                String addrJson = gson.toJson(local, IPandPort.class);
+                System.out.println(addrJson);
+                return 0;
             default:
                 System.out.println("Exitting...");
                 return 1;
@@ -114,7 +120,7 @@ public class testApp {
 
     public static void main(String [] args){
         //TODO: encapsulate some of the below functionality in a class
-        ClientServer cServer = new ClientServer();
+        cServer = new ClientServer();
         cServer.start();
 
         int choice = 0;
@@ -127,6 +133,7 @@ public class testApp {
         menu.addOption("Check Token"); //5
         menu.addOption("Test JWT"); //6
         menu.addOption("Connect to User");
+        menu.addOption("Show Server IP and Port"); //8
         menu.addOption("Quit");
 
         int quit = 0;

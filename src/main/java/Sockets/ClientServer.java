@@ -1,10 +1,10 @@
 package Sockets;
 
+import QueryObjects.IPandPort;
+
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.SocketException;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -35,6 +35,23 @@ public class ClientServer implements Runnable {
         catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    //Returns client-server address and socket
+    //TODO: will likely need to be changed for NAT Punching
+    public synchronized IPandPort getLocalIPandPort(){
+        //Source: https://www.mkyong.com/java/how-to-get-ip-address-in-java/
+        InetAddress ip;
+        try {
+            ip = InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+            return null;
+        }
+        IPandPort data = new IPandPort();
+        data.ipAddress = ip.getHostAddress();
+        data.port = sSocket.getLocalPort();
+        return data;
     }
 
     private Thread t;
