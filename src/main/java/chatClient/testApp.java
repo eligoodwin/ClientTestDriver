@@ -49,10 +49,10 @@ public class testApp {
                 try {
                     in = client.addUser(user);
                     System.out.println(in);
-                    UserData testUser = gson.fromJson(in, UserData.class);
+                    UserData tempUser = gson.fromJson(in, UserData.class);
                     System.out.println("UserData token:");
-                    System.out.println(testUser.token);
-                    user.token = testUser.token;
+                    System.out.println(tempUser.token);
+                    user.token = tempUser.token;
                 }
                 catch(IOException e){
                     e.printStackTrace();
