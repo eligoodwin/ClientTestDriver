@@ -13,6 +13,10 @@ public class UserData {
     public String email = "";
     @Expose
     public String ipAddress = "127.0.0.1";
+    @Expose
+    public String peerServerPort = "9001";
     public String token = "";
+    //TODO: change user id
+    public long id = 3;
     public UserData(){};
 };

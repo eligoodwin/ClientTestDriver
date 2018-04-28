@@ -13,6 +13,11 @@ public class ClientServer implements Runnable {
     final private int maxConnections = 5;
     private int numConnections = 0;
     private ArrayList<PeerConnection> connections;
+    private int port = 9000;
+
+    public ClientServer(int p){
+        port = p;
+    }
     //Returns true if the Socket was added or false if not
     private synchronized boolean addConnection(PeerConnection con){
         if(numConnections >= maxConnections) return false;
@@ -66,7 +71,7 @@ public class ClientServer implements Runnable {
 
     public void run() {
         try {
-            sSocket = new ServerSocket(findSocket());
+            sSocket = findSocket();
             try {
                 while (getRunning()) {
                     try {
@@ -87,14 +92,24 @@ public class ClientServer implements Runnable {
             }
             catch(IOException e){
                 e.printStackTrace();
-                sSocket.close();
+                try {
+                    sSocket.close();
+                }
+                catch(IOException e2){
+                    e2.printStackTrace();
+                }
                 running = false;
             }
             finally {
-                sSocket.close();
+                try {
+                    sSocket.close();
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
             }
         }
-        catch(IOException e){
+        catch(SocketException e){
             e.printStackTrace();
         }
     }
@@ -108,7 +123,18 @@ public class ClientServer implements Runnable {
     }
 
     //TODO: make this find available socket
-    private int findSocket(){
-        return 9090;
+    private ServerSocket findSocket() throws SocketException{
+        ServerSocket sock = null;
+        if (port > 65535) throw new SocketException();
+        while (true) {
+            try {
+                sock = new ServerSocket(port);
+                break;
+            }
+            catch(IOException e){
+               port++;
+            }
+        }
+        return sock;
     }
 }

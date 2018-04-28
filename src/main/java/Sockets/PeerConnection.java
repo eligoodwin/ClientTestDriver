@@ -1,5 +1,6 @@
 package Sockets;
 
+import QueryObjects.FriendData;
 import QueryObjects.IPandPort;
 
 import java.io.BufferedReader;
@@ -17,8 +18,8 @@ public class PeerConnection {
         sock= new Socket(add, port);
         //TODO: handle sock failure
     }
-    public PeerConnection(IPandPort data) throws IOException{
-        sock= new Socket(data.ipAddress, data.port);
+    public PeerConnection(FriendData data) throws IOException{
+        sock= new Socket(data.ipAddress, Integer.parseInt(data.peerServerPort));
         //TODO: handle sock failure
     }
     private Socket sock;

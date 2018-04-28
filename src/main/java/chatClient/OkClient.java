@@ -4,6 +4,7 @@ package chatClient;
 
 import java.io.IOException;
 
+import QueryObjects.FriendData;
 import QueryObjects.IPandPort;
 import QueryObjects.UserData;
 import com.google.gson.Gson;
@@ -85,6 +86,48 @@ public class OkClient {
         return response.body().string();
     }
 
+    public String requestFriend(String username, UserData current) throws IOException{
+        if (url == "") return "No URL set!";
+        Request request = new Request.Builder()
+                .url(url + "/user/" + current.id + "/friend/" + username)
+                .build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    public String acceptFriend(String username, UserData current) throws IOException{
+        if (url == "") return "No URL set!";
+        Request request = new Request.Builder()
+                .url(url + "/user/" + current.id + "/friend/" + username + "/2")
+                .build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    //TODO: update return type when determined how to parse code
+    public String getFriends(String jwt, UserData current) throws IOException {
+        if (url == "") return "No URL set!";
+        Request request = new Request.Builder()
+                .url(url + "/user/" + current.id + "/friend")
+                .build();
+        Response response = client.newCall(request).execute();
+        String out = response.body().string();
+        System.out.println(out);
+        return out;
+    }
+
+    public String updateIP(UserData current) throws IOException{
+        if (url == "") return "No URL set!";
+        RequestBody body = RequestBody.create(JSON, "{\"newIP\":\"\"");
+        Request request = new Request.Builder()
+                .url(url + "/user/" + current.id + "/ipAddress?newIP=" + current.ipAddress + "&portNumber=" + current.peerServerPort)
+                .put(body)
+                .build();
+        Response response = client.newCall(request).execute();
+        System.out.println(response.body().string());
+        return response.body().string();
+    }
+
     public IPandPort getUser(String user){
         //TODO: make actual connection
         IPandPort data = new IPandPort();
@@ -98,6 +141,7 @@ public class OkClient {
     public void setURL(String add){
         url = add;
     }
+
 
     public OkClient(){
         client = new OkHttpClient();

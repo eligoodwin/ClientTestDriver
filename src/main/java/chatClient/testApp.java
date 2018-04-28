@@ -3,6 +3,7 @@ package chatClient;
 
 import Authorization.JWTManager;
 import QueryObjects.DataObjectHelper;
+import QueryObjects.FriendData;
 import QueryObjects.IPandPort;
 import QueryObjects.UserData;
 import Sockets.ClientServer;
@@ -15,6 +16,7 @@ import java.io.*;
 import java.util.Scanner;
 
 import static QueryObjects.DataObjectHelper.createUser;
+import static QueryObjects.DataObjectHelper.findFriend;
 
 public class testApp {
     static public OkClient client = new OkClient();
@@ -22,6 +24,9 @@ public class testApp {
     private static String token = "";
     private static UserData user = new UserData();
     private static ClientServer cServer;
+    public static FriendData[] friends;
+
+
     //Returns 1 if option is to quit or 0 otherwise
     public static int interpretChoice(int choice){
         Scanner scanner = new Scanner( System.in );
@@ -53,6 +58,7 @@ public class testApp {
                     System.out.println("UserData token:");
                     System.out.println(tempUser.token);
                     user.token = tempUser.token;
+                    user.id = tempUser.id;
                 }
                 catch(IOException e){
                     e.printStackTrace();
@@ -98,7 +104,13 @@ public class testApp {
             case 7:
                 try {
                     //TODO: add getAddress and Port - create query object
-                    IPandPort friend = client.getUser("user");
+                    System.out.println("Enter username to connect to: ");
+                    in = scanner.nextLine();
+                    FriendData friend = findFriend(in, friends);
+                    if (friend == null){
+                        System.out.println("Friend not found.");
+                        return 0;
+                    }
                     PeerConnection con = new PeerConnection(friend);
                     con.receiveMessage();
                 }
@@ -111,6 +123,63 @@ public class testApp {
                 String addrJson = gson.toJson(local, IPandPort.class);
                 System.out.println(addrJson);
                 return 0;
+            case 9:
+                try {
+                    in = client.getFriends(user.token, user);
+                    friends = gson.fromJson(in, FriendData[].class);
+                    int count = 1;
+                    for (FriendData friend : friends){
+                       System.out.println("Count is " + count);
+                       System.out.println("User is: " + friend.username + ". Id is: " + friend.id);
+                       count++;
+                    }
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+                return 0;
+            case 10:
+                System.out.println("Enter friend username:");
+                in = scanner.nextLine();
+                try{
+                    in = client.requestFriend(in, user);
+                    System.out.println(in);
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+                return 0;
+            case 11:
+                System.out.println("Enter friend username:");
+                in = scanner.nextLine();
+                try{
+                    in = client.acceptFriend(in, user);
+                    System.out.println(in);
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+                return 0;
+            case 12:
+                System.out.println("Enter id:");
+                in = scanner.nextLine();
+                user.id = Integer.parseInt(in);
+                return 0;
+            case 13:
+                System.out.println("Enter IP address:");
+                in = scanner.nextLine();
+                user.ipAddress = in;
+                System.out.println("Enter Port:");
+                in = scanner.nextLine();
+                user.peerServerPort = in;
+                try{
+                    in = client.updateIP(user);
+                    System.out.println(in);
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+                return 0;
             default:
                 System.out.println("Exitting...");
                 return 1;
@@ -119,8 +188,8 @@ public class testApp {
     }
 
     public static void main(String [] args){
-        //TODO: encapsulate some of the below functionality in a class
-        cServer = new ClientServer();
+        //TODO: load and set port based on ClientServer
+        cServer = new ClientServer(Integer.parseInt(user.peerServerPort));
         cServer.start();
 
         int choice = 0;
@@ -134,9 +203,16 @@ public class testApp {
         menu.addOption("Test JWT"); //6
         menu.addOption("Connect to User");
         menu.addOption("Show Server IP and Port"); //8
+        menu.addOption("Test get friends list"); //9
+        menu.addOption("Request Friend");//10
+        menu.addOption("Accept Friend");
+        menu.addOption("Change ID -- TESTING ONLY"); //12
+        menu.addOption("Update IP and Port");
         menu.addOption("Quit");
 
         int quit = 0;
+        //TODO: login on startup
+        //TODO: load user after login
 
         while (quit == 0){
             choice = menu.getChoice();
