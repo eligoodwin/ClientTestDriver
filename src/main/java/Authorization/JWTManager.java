@@ -1,4 +1,4 @@
-package chatClient;
+package Authorization;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

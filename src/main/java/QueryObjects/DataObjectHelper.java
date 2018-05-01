@@ -1,5 +1,7 @@
-package chatClient;
+package QueryObjects;
+//source: https://github.com/google/gson/blob/master/UserGuide.md
 
+import QueryObjects.UserData;
 import com.google.gson.Gson;
 
 import java.io.*;
@@ -24,6 +26,14 @@ public class DataObjectHelper {
         System.out.println("Please enter an email: ");
         in = scanner.nextLine();
         user.email = in;
+
+        System.out.println("Please enter an IP:");
+        in = scanner.nextLine();
+        user.ipAddress = in;
+
+        System.out.println("Please enter a port: ");
+        in = scanner.nextLine();
+        user.peerServerPort = in;
         //TODO: add IP address
 
         return user;
@@ -64,5 +74,15 @@ public class DataObjectHelper {
         }
         UserData user = gson.fromJson(json, UserData.class);
         return user;
+    }
+
+    public static FriendData findFriend(String username, FriendData[] friends){
+        if (friends.length == 0) return null;
+        for (FriendData friend : friends){
+           if (friend.username.equals(username)){
+               return friend;
+           }
+        }
+        return null;
     }
 }
